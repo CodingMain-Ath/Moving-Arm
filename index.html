@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive 3D robotic arm simulation with wheeled base, servo-controlled joints, and gear-driven claw">
+  <title>Robot Arm Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <!-- Title -->
+  <div id="title-bar">
+    <h1>🤖 Robot Arm Simulator</h1>
+    <span class="subtitle">Interactive 3D Simulation</span>
+  </div>
+
+  <!-- Control Panel -->
+  <div id="control-panel">
+    <div class="panel-header">Controls</div>
+
+    <div class="control-group">
+      <label>
+        <span class="dot cyan"></span> Base Rotation
+        <span id="rotation-value" class="value">0°</span>
+      </label>
+      <input type="range" id="rotation-slider" min="0" max="100" value="50" class="slider cyan">
+    </div>
+
+    <div class="control-group">
+      <label>
+        <span class="dot orange"></span> Arm Pitch
+        <span id="pitch-value" class="value">0°</span>
+      </label>
+      <input type="range" id="pitch-slider" min="0" max="100" value="25" class="slider orange">
+    </div>
+
+    <div class="control-group">
+      <label>
+        <span class="dot purple"></span> Claw Rotation
+        <span id="claw-rot-value" class="value">0°</span>
+      </label>
+      <input type="range" id="claw-rot-slider" min="0" max="100" value="50" class="slider purple">
+    </div>
+
+    <div class="control-group btn-group">
+      <button id="claw-btn" class="claw-button">🤏 GRAB</button>
+    </div>
+
+    <hr class="divider">
+
+    <div class="control-group">
+      <button id="reset-btn" class="reset-button">↺ Reset</button>
+    </div>
+
+    <div class="key-hints">
+      <div class="hint-title">Movement</div>
+      <div class="keys">
+        <kbd>W</kbd><br>
+        <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd>
+      </div>
+      <div class="hint-sub">Mouse to orbit camera</div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
